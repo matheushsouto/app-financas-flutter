@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'app.dart';
+import 'firebase_options.dart';
 
 /// Ponto de entrada do app.
 ///
@@ -15,15 +17,8 @@ Future<void> main() async {
   // lança exceção em tempo de execução.
   await initializeDateFormatting('pt_BR');
 
-  // TODO(aula-firebase): habilitar o Firebase.
-  // 1. Instale a CLI:            dart pub global activate flutterfire_cli
-  // 2. Gere a configuração:      flutterfire configure
-  //    (isso cria lib/firebase_options.dart)
-  // 3. Descomente as linhas abaixo e o import correspondente.
-  //
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await Firebase.initializeApp(options: firebaseOptions);
 
   runApp(const GuiaFinanceiroApp());
 }
+

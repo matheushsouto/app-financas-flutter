@@ -36,19 +36,31 @@ A navegação entre as abas já funciona.
 ### Ativando o Firebase
 
 O Firebase já está declarado nas dependências, mas a inicialização está
-comentada — assim o projeto compila antes de configurarmos o backend.
-Quando chegarmos nessa aula:
+comentada — assim o projeto compila antes de configurarmos o backend. Como o
+app é testado pelo Chrome (`flutter run -d chrome`), a configuração é feita
+inteiramente pelo Console do Firebase, copiando e colando valores — sem
+instalar CLI nem fazer login pelo terminal:
 
-```bash
-dart pub global activate flutterfire_cli
-flutterfire configure
-```
+1. Acesse [console.firebase.google.com](https://console.firebase.google.com)
+   e crie um projeto (pode desativar o Google Analytics).
+2. Na tela inicial do projeto, clique no ícone `</>` ("Web") para registrar
+   um app Web. Dê qualquer apelido; não marque Firebase Hosting.
+3. O console mostra um bloco `firebaseConfig` com seis valores
+   (`apiKey`, `authDomain`, `projectId`, `storageBucket`,
+   `messagingSenderId`, `appId`).
+4. Menu lateral → **Compilação → Authentication** → "Vamos começar" → ative
+   o provedor **E-mail/senha**.
+5. Menu lateral → **Compilação → Firestore Database** → "Criar banco de
+   dados" (modo produção). Depois publique o conteúdo de `firestore.rules`
+   em **Firestore Database → Regras**.
+6. Copie `lib/firebase_options.example.dart` para `lib/firebase_options.dart`
+   e cole os seis valores do passo 3.
+7. Descomente o bloco marcado com `TODO(aula-firebase)` em `lib/main.dart`
+   (o import de `firebase_core`, o de `firebase_options.dart` e a chamada de
+   `Firebase.initializeApp`).
 
-Isso gera `lib/firebase_options.dart`. Em seguida, descomente o bloco marcado
-com `TODO(aula-firebase)` em `lib/main.dart`.
-
-O arquivo `firebase_options.dart` e os arquivos `google-services.json` /
-`GoogleService-Info.plist` estão no `.gitignore`: cada aluno gera os seus.
+Cada aluno cria o **seu próprio** projeto Firebase — `firebase_options.dart`
+está no `.gitignore` e nunca deve ser commitado.
 
 ---
 

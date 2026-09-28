@@ -38,3 +38,10 @@ ios/Runner/GoogleService-Info.plist
 
 # Cobertura de testes
 coverage/
+
+# Plataformas geradas pelo Flutter
+.metadata
+/android/
+/ios/
+/linux/
+/web/
