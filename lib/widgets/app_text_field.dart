@@ -18,6 +18,7 @@ class AppTextField extends StatelessWidget {
     this.textInputAction,
     this.validator,
     this.onChanged,
+    this.onFieldSubmitted,
     super.key,
   });
 
@@ -31,6 +32,7 @@ class AppTextField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {

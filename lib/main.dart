@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:guia_financeiro/firebase_options.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'app.dart';
@@ -14,7 +16,7 @@ Future<void> main() async {
   // Carrega os símbolos de data em português — sem isso, `DateFormat(..., 'pt_BR')`
   // lança exceção em tempo de execução.
   await initializeDateFormatting('pt_BR');
-
+  await Firebase.initializeApp(options: firebaseOptions);
   // TODO(aula-firebase): habilitar o Firebase.
   // 1. Instale a CLI:            dart pub global activate flutterfire_cli
   // 2. Gere a configuração:      flutterfire configure
