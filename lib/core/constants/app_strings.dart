@@ -21,6 +21,12 @@ abstract final class AppStrings {
   static const String password = 'Senha';
   static const String forgotPassword = 'Esqueci minha senha';
 
+  // Receitas
+  static const String incomesTotal = 'Total recebido no mês';
+  static const String incomesEntries = 'Lançamentos';
+  static const String incomesEmpty =
+      'Toque em + para registrar uma nova receita';
+
   // Mensagens genéricas
   static const String genericError =
       'Algo deu errado. Tente novamente em instantes.';

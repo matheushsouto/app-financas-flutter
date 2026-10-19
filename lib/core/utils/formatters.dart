@@ -11,12 +11,20 @@ abstract final class Formatters {
     decimalDigits: 2,
   );
 
+  static final NumberFormat _decimal = NumberFormat.decimalPatternDigits(
+    locale: 'pt_BR',
+    decimalDigits: 2,
+  );
+
   static final DateFormat _dayMonth = DateFormat('dd/MM', 'pt_BR');
   static final DateFormat _fullDate = DateFormat('dd/MM/yyyy', 'pt_BR');
   static final DateFormat _monthYear = DateFormat("MMMM 'de' yyyy", 'pt_BR');
 
   /// `1234.5` → `R$ 1.234,50`
   static String currency(num value) => _currency.format(value);
+
+  /// `1234.5` → `1.234,50` (sem o símbolo da moeda)
+  static String decimal(num value) => _decimal.format(value);
 
   /// `DateTime(2026, 9, 15)` → `15/09`
   static String dayMonth(DateTime date) => _dayMonth.format(date);

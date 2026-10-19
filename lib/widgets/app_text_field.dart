@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../core/theme/app_spacing.dart';
 
@@ -12,6 +13,7 @@ class AppTextField extends StatelessWidget {
     this.controller,
     this.hintText,
     this.prefixIcon,
+    this.prefixText,
     this.suffixIcon,
     this.obscureText = false,
     this.keyboardType,
@@ -19,6 +21,9 @@ class AppTextField extends StatelessWidget {
     this.validator,
     this.onChanged,
     this.onFieldSubmitted,
+    this.inputFormatters,
+    this.readOnly = false,
+    this.onTap,
     super.key,
   });
 
@@ -26,6 +31,7 @@ class AppTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? hintText;
   final IconData? prefixIcon;
+  final String? prefixText;
   final Widget? suffixIcon;
   final bool obscureText;
   final TextInputType? keyboardType;
@@ -33,6 +39,9 @@ class AppTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
+  final List<TextInputFormatter>? inputFormatters;
+  final bool readOnly;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +57,14 @@ class AppTextField extends StatelessWidget {
           textInputAction: textInputAction,
           validator: validator,
           onChanged: onChanged,
+          onFieldSubmitted: onFieldSubmitted,
+          inputFormatters: inputFormatters,
+          readOnly: readOnly,
+          onTap: onTap,
           decoration: InputDecoration(
             hintText: hintText,
             prefixIcon: prefixIcon == null ? null : Icon(prefixIcon, size: 20),
+            prefixText: prefixText,
             suffixIcon: suffixIcon,
           ),
         ),
