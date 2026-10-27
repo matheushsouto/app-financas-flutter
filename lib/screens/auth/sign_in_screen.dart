@@ -7,6 +7,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/utils/validators.dart';
 import '../../services/auth_service.dart';
+import '../../services/auth_service_laravel.dart';
 import '../../widgets/app_text_field.dart';
 
 /// Tela de login (wireframe 1).
@@ -18,7 +19,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  final AuthService _authService = AuthService();
+  final AuthService _authService = AuthServiceLaravel();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();

@@ -23,6 +23,7 @@ dependencies:
 
   # Formatação de moeda e datas em pt_BR
   intl: ^0.20.3
+  http: ^1.6.0
 
 dev_dependencies:
   flutter_test:
